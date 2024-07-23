@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="stylesheet" href="./styles/student.css">
+</head>
+<body>
+    <div class="outside">
+    <div class="container">
+        <%if(locals.user){%>
+            <H1>ADMIN</H1>
+        <%}%>
+        <div class="nav1">
+            <form action="/editstudent" method="post"><button class="btn">Edit Student</button></form>
+            <form action="/editfaculty" method="post"><button class="btn">Edit Faculty</button></form>
+        </div>
+        <div class="nav">
+            <form action="/adminstudent" method="POST"><button class="btn">Student Details</button></form>
+            <form action="/facultydetails" method="POST"><button class="btn">Faculty Details</button></form>
+        </div>
+        <div class="info">
+
+           <%if(locals.result){%>
+            <ul class="details">
+                <%for(var i=0;i!=result.rows.length;i++){%>
+                    <li>StudentName: <%= result.rows[i].name%></li>
+                    <ul class="stdetails">
+                    <li> Department : <%= result.rows[i].department%></li>  
+                    <li> Attendance : <%= result.rows[i].attendance%></li>  
+                </ul>
+                <%}%>
+                </ul>
+           <%}%>
+           <%if(locals.result2){%>
+    
+            <ul class="details">
+                <%for(var i=0;i!=result2.rows.length;i++){%>
+                    <li>Faculty Name: <%= result2.rows[i].name%> </li>
+                    <ul class="stdetails">
+                    <li> Department : <%= result2.rows[i].department%> </li>  
+                    <li> Contact : <%= result2.rows[i].phone%> </li>  
+                </ul>
+            
+                <%}%>
+                </ul>
+            
+           <%}%>
+           
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

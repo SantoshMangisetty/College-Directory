@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="./styles/edit.css">
+</head>
+<body>
+    <form action="/admin" method="get"><button class="home">home</button></form>
+
+    <div class="container">
+        <h1>ADD Faculty Below</h1>
+        <div>
+            <form action="/facultyadd" method="post" class="form">
+                <input type="text" name="name" placeholder="Faculty Name">
+                <input type="text" name="department" placeholder="Department">
+                <input type="text" name="department_id" placeholder="DepartmentID">
+                <input type="text" name="phone" placeholder="Phone No.">
+                <input type="text" name="password" placeholder="New Password"> 
+                <button class="btn">ADD</button>
+            </form>
+        </div>
+        <h1>Delete Faculty Below</h1>
+        <form action="/deleteF" method="post" class="form2">
+            <input type="text" name="name" placeholder="Faculty Name">
+            <button class="btn">DELETE</button>
+        </form>
+    </div>
+    
+</body>
+</html>

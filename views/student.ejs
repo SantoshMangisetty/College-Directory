@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="stylesheet" href="./styles/student.css">
+</head>
+<body>
+    <div class="outside">
+    <div class="container">
+        <%if(locals.user){%>
+            <H1>Welcome <%= user %></H1>
+        <%}%>
+        
+        <div class="nav">
+            <form action="/student" method="POST"><button class="btn">Student Details</button></form>
+            <form action="/grade" method="POST"><button class="btn">Grades / Attendance</button></form>
+            <form action="/contact" method="POST"><button class="btn">Contact</button></form>
+        </div>
+        <div class="info">
+           <% if(locals.check){%>
+            <ul class="details"> 
+                <li>Student Name : <%=check.rows[0].name%></li>
+                <li>DepartmentID : <%= check.rows[0].department_id%></li>
+                <li>Department : <%= check.rows[0].department%></li>
+            </ul>
+           <%}%>
+           <% if(locals.grade){%>
+            <ul class="details"> 
+                <li>Grade : <%=grade.rows[0].grade%></li>
+                <li>Attendance : <%= grade.rows[0].attendance %> / 100.0</li>
+            </ul>
+           <%}%>
+
+           <%if(locals.result){%>
+            <ul class="details">
+                <%for(var i=0;i!=result.rows.length;i++){%>
+                    <li>Faculty : <%= result.rows[i].name%> || Contact : <%= result.rows[i].phone%></li>
+                <%}%>
+                </ul>
+           <%}%>
+           
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

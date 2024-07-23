@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>COLLEGE LOGIN</h1>
+        <div class="login-box">
+            <form action="/login" method="POST" class="form">
+                <select name="role" id="1" class="select">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <input type="text" name="user" class="box" placeholder="Username" required>
+                <input type="password" name="password" class="box" placeholder="Password">
+                <button class="btn">Login</button>
+                <%if(locals.incorrect){%>
+                    <h5><%= incorrect %> 
+                <%}%>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
